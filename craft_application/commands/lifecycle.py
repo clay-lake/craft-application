@@ -77,6 +77,14 @@ class _BaseLifecycleCommand(base.ExtensibleCommand):
             help="Build in a LXD container.",
         )
 
+        parser.add_argument(
+            "--pro",
+            action="append",
+            type=str,
+            metavar="<pro-service>",
+            help="Enable Ubuntu Pro service. This argument can be repeated for multiple services.",
+        )
+
     @override
     def get_managed_cmd(self, parsed_args: argparse.Namespace) -> list[str]:
         cmd = super().get_managed_cmd(parsed_args)
